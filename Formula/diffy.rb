@@ -15,9 +15,9 @@ class Diffy < Formula
   end
 
   def install
-    # Homebrew extracts and cd's into the .app, so we need to go back to parent
-    Dir.chdir("..")
-    prefix.install "Diffy.app"
+    # When Homebrew extracts a tar.gz with only a .app, it cd's into it
+    # So we're already inside Diffy.app/. Install current directory as the .app
+    prefix.install Dir.pwd => "Diffy.app"
     bin.write_exec_script prefix/"Diffy.app/Contents/MacOS/diffy"
   end
 
