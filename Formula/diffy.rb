@@ -16,7 +16,7 @@ class Diffy < Formula
 
   def install
     prefix.install "Diffy.app"
-    bin.install_symlink "#{prefix}/Diffy.app/Contents/MacOS/diffy"
+    bin.write_exec_script prefix/"Diffy.app/Contents/MacOS/diffy"
   end
 
   def caveats
