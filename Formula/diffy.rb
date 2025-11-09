@@ -15,17 +15,10 @@ class Diffy < Formula
   end
 
   def install
-    # Debug: check what files are available
-    ohai "Current directory: #{Dir.pwd}"
-    ohai "Files present: #{Dir.glob("*").join(", ")}"
-
-    # Try to find and install the app
-    if File.exist?("Diffy.app")
-      prefix.install "Diffy.app"
-      bin.write_exec_script prefix/"Diffy.app/Contents/MacOS/diffy"
-    else
-      odie "Diffy.app not found in extracted archive. Contents: #{Dir.glob("**/*").join(", ")}"
-    end
+    # Homebrew extracts and cd's into the .app, so we need to go back to parent
+    Dir.chdir("..")
+    prefix.install "Diffy.app"
+    bin.write_exec_script prefix/"Diffy.app/Contents/MacOS/diffy"
   end
 
   def caveats
