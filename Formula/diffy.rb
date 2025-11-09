@@ -7,10 +7,10 @@ class Diffy < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/atlascodesai/diffy/releases/download/v0.1.0/diffy-aarch64-apple-darwin.tar.gz"
-      sha256 "PLACEHOLDER_AARCH64_SHA256"
+      sha256 "51d44eadad17052ff65f1674136b52163a93d117b94ae8fd8aab2d7beb18b8b3"
     else
       url "https://github.com/atlascodesai/diffy/releases/download/v0.1.0/diffy-x86_64-apple-darwin.tar.gz"
-      sha256 "PLACEHOLDER_X86_64_SHA256"
+      sha256 "c6fb6b93ccb95a6aab98d03bb726e3d720ba42b80d67363fc4a2d62bec149594"
     end
   end
 
